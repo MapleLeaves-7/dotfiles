@@ -11,13 +11,23 @@ fi
 # alias ls='ls -GpF'
 # alias la='ls -lgha'
 
+# ALIASES
+# --------------------------------------
+# Terminal 
+# --------------------------------------
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias -- -="cd -"
+
 # --------------------------------------
 # exa
 # --------------------------------------
-alias ls='exa -l'
-alias la='exa -la'
+alias ls='exa -l --grid'
+alias la='exa -la --grid'
 # Shows the directories in a tree strucutre, but limit the recursion to only 2 levels
-alias ll='exa -la --tree --level=2'
+alias ll='exa -la --tree --level=2 --grid'
 
 
 # ----------------------------------
@@ -54,6 +64,12 @@ alias gds='git diff --staged'
 # git restore
 alias gr='git restore'
 alias grs='git restore --staged'
+
+# git push
+alias gph='git push'
+
+# git pull
+alias gpl='git pull'
 
 
 # -------------------------------------
@@ -116,3 +132,14 @@ source ~/path/to/fsh/fast-syntax-highlighting.plugin.zsh
 # bare git repo for dotfiles
 # -------------------------------------------------
 alias config='/usr/bin/git --git-dir=/Users/me/.cfg/ --work-tree=/Users/me'
+
+# ------------------------------------------------
+# colour config for exa / terminal
+# ------------------------------------------------
+export CLICOLOR=1
+export LS_COLORS="di=0;36"
+export EXA_COLORS="da=1;34"
+
+
+# export DIRECTUS_DSN="host=localhost user=cms_reader password=WkFY1BxDK1vf3HI dbname=cmsdirectus port=25432 sslmode=disable TimeZone=Asia/Singapore"
+# export DIRECTUS_DSN="host=localhost user=me password= dbname=me port=5432 sslmode=disable TimeZone=Asia/Singapore"
