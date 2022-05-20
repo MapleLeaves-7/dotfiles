@@ -1,0 +1,6 @@
+# Save all videos under Movies directory in your home directory
+-o ~/Desktop/youtube-dl-saved/%(title)s.%(ext)s
+
+# Video Quality
+-f mp4
+-f best
