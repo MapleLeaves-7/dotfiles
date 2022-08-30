@@ -107,7 +107,7 @@ source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # fzf-tab
 # NOTE: fzf-tab needs to be loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting!!
-source ~/somewhere/fzf-tab.plugin.zsh
+source ~/fzf-tab/fzf-tab.plugin.zsh
 
 # fast-syntax-highlighting
 source $(brew --prefix)/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
