@@ -35,7 +35,6 @@ brew install pyenv
 ###############################################################################
 brew install fzf
 brew install tldr
-brew install zsh-autosuggestions
 brew install zsh-fast-syntax-highlighting
 brew install peco
 brew install exa
