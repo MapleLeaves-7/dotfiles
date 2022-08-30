@@ -85,16 +85,27 @@ export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvmexport PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
 
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# bash completion
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# # bash completion
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# zsh-autosuggestions
-# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# fzf-tab
+# NOTE: fzf-tab needs to be loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting!!
+# source ~/somewhere/fzf-tab.plugin.zsh
+
+# powerlevel10k
+source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+# fast-syntax-highlighting
+source $(brew --prefix)/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # autojump
 [ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
@@ -102,15 +113,8 @@ eval "$(pyenv init -)"
 # autoenv
 source $(brew --prefix autoenv)/activate.sh
 
-# powerlevel10k
-source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
-
-# fzf-tab
-# NOTE: fzf-tab needs to be loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting!!
-source ~/fzf-tab/fzf-tab.plugin.zsh
-
-# fast-syntax-highlighting
-source $(brew --prefix)/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # -------------------------------------------------
 # bare git repo for dotfiles
