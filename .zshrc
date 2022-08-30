@@ -77,54 +77,40 @@ alias gpl='git pull'
 # -------------------------------------
 # alias rg="rg --hidden --max-columns 255 --glob '!.git' --glob '!/Library'" 
 
-
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# if command -v pyenv 1>/dev/null 2>&1; then
-#   eval "$(pyenv init -)"
-# fi
-
 # export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 # alias ibrew='arch -x86_64 /usr/local/bin/brew'
 
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
-export PATH=/usr/local/opt/sqlite/bin:/opt/homebrew/bin:/usr/local/bin:/Users/me/.pyenv/shims:/Users/me/.pyenv/shims:/Library/Frameworks/Python.framework/Versions/3.9/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Postgres.app/Contents/Versions/latest/bin:~/Documents/nand2tetris/tools
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvmexport PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-export PATH="/usr/local/opt/libxml2/bin:$PATH"
-eval "$(pyenv virtualenv-init -)"
+
+# bash completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # zsh-autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-source /Users/me/.config/broot/launcher/bash/br
+[ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # autoenv
 source $(brew --prefix autoenv)/activate.sh
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
-
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+# powerlevel10k
+source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # fzf-tab
 # NOTE: fzf-tab needs to be loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting!!
 source ~/somewhere/fzf-tab.plugin.zsh
 
 # fast-syntax-highlighting
-source ~/path/to/fsh/fast-syntax-highlighting.plugin.zsh
-
+source $(brew --prefix)/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # -------------------------------------------------
 # bare git repo for dotfiles
@@ -141,12 +127,6 @@ export EXA_COLORS="da=1;34"
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/me/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
-# For rabbitmq
-# export PATH=$PATH:/usr/local/sbin
-# ARM homebrew
-# eval "$(/opt/homebrew/bin/brew shellenv)"
-# alias armbrew='/opt/homebrew/bin/brew'
-
 # For postgres
 # export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/13/bin/psql
 alias psql='/Applications/Postgres.app/Contents/Versions/13/bin/psql -p 54321'
@@ -161,7 +141,9 @@ export PATH="/usr/local/go/bin:$PATH"
 export GOPATH=/Users/me/golib
 export PATH="$PATH:$GOPATH/bin"
 
-
 # export GOPATH=$HOME/go
 # export GOROOT="$(brew --prefix golang)/libexec"
 # export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
