@@ -46,8 +46,8 @@ alias ga='git add'
 alias gaa='git add -A'
 
 # git commit
-alias gc='git commit'
-alias gcm='git commit -m'
+# alias gc='git commit'
+alias gcm='git commit'
 alias gcmam='git commit --amend'
 
 # git checkout
@@ -98,10 +98,6 @@ export PATH="/usr/local/opt/libxml2/bin:$PATH"
 eval "$(pyenv virtualenv-init -)"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH 
-
-
 # zsh-autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -110,6 +106,8 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 source /Users/me/.config/broot/launcher/bash/br
 
+# autoenv
+source $(brew --prefix autoenv)/activate.sh
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -140,6 +138,30 @@ export CLICOLOR=1
 export LS_COLORS="di=0;36"
 export EXA_COLORS="da=1;34"
 
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/Users/me/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
-# export DIRECTUS_DSN="host=localhost user=cms_reader password=WkFY1BxDK1vf3HI dbname=cmsdirectus port=25432 sslmode=disable TimeZone=Asia/Singapore"
-# export DIRECTUS_DSN="host=localhost user=me password= dbname=me port=5432 sslmode=disable TimeZone=Asia/Singapore"
+# For rabbitmq
+# export PATH=$PATH:/usr/local/sbin
+# ARM homebrew
+# eval "$(/opt/homebrew/bin/brew shellenv)"
+# alias armbrew='/opt/homebrew/bin/brew'
+
+# For postgres
+# export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/13/bin/psql
+alias psql='/Applications/Postgres.app/Contents/Versions/13/bin/psql -p 54321'
+
+# add openssl from homebrew to path
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
+# export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export PATH="/usr/local/go/bin:$PATH"
+
+export GOPATH=/Users/me/golib
+export PATH="$PATH:$GOPATH/bin"
+
+
+# export GOPATH=$HOME/go
+# export GOROOT="$(brew --prefix golang)/libexec"
+# export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
