@@ -15,7 +15,7 @@ brew install git
 brew install git-lfs
 
 # Install `wget` with IRI support.
-brew install wget --with-iri
+brew install wget
 
 brew install bash
 
