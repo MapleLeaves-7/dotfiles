@@ -45,16 +45,16 @@ brew install autojump
 ###############################################################################
 # Homebrew Cask Downloads
 ###############################################################################
-brew install --cask iterm2
+brew install --cask alfred
 brew install --cask alt-tab
 brew install --cask flux
-brew install --cask spotify
-brew install --cask evernote
 brew install --cask visual-studio-code
 brew install --cask 1password
+brew install --cask spotify
+brew install --cask evernote
 brew install --cask slack
 brew install --cask discord
-brew install --cask alfred
+brew install --cask iterm2
 
 # Remove outdated versions from the cellar.
 brew cleanup
