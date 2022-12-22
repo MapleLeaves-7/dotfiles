@@ -151,3 +151,15 @@ export PATH="$PATH:$GOPATH/bin"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f "/Users/me/.ghcup/env" ] && source "/Users/me/.ghcup/env" # ghcup-
+
+
+##########################################################################
+# llvm@12
+##########################################################################
+
+export PATH="/opt/homebrew/opt/llvm@12/bin:$PATH"
+# For compilers to find llvm@12 you may need to set:
+#   export LDFLAGS="-L/opt/homebrew/opt/llvm@12/lib"
+#   export CPPFLAGS="-I/opt/homebrew/opt/llvm@12/include"
