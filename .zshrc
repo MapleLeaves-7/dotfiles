@@ -97,9 +97,16 @@ eval "$(pyenv init -)"
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+################################################
+# antigen
+################################################
+source /opt/homebrew/share/antigen/antigen.zsh
+# load oh-my-zsh library
+antigen use oh-my-zsh
 # fzf-tab
-# NOTE: fzf-tab needs to be loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting!!
-# source ~/somewhere/fzf-tab.plugin.zsh
+antigen bundle Aloxaf/fzf-tab
+# apply antigen loaded plugins
+antigen apply
 
 # powerlevel10k
 source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
