@@ -41,6 +41,7 @@ brew install exa
 brew install autoenv
 brew install autojump
 brew install romkatv/powerlevel10k/powerlevel10k
+brew install antigen
 
 ###############################################################################
 # Homebrew Cask Downloads
