@@ -55,7 +55,8 @@ alias gco='git checkout'
 alias gcb='git checkout -b'
 
 # git log
-alias gl='git log'
+alias gl='git log --graph --oneline --all --decorate'
+alias gll='git log'
 
 # git diff
 alias gd='git diff'
@@ -85,11 +86,6 @@ export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvmexport PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
 
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 # # bash completion
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -170,3 +166,34 @@ export PATH="/opt/homebrew/opt/llvm@12/bin:$PATH"
 # For compilers to find llvm@12 you may need to set:
 #   export LDFLAGS="-L/opt/homebrew/opt/llvm@12/lib"
 #   export CPPFLAGS="-I/opt/homebrew/opt/llvm@12/include"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/me/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/me/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/me/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/me/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+
+# pyenv
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
