@@ -136,7 +136,7 @@ HEROKU_AC_ZSH_SETUP_PATH=/Users/me/Library/Caches/heroku/autocomplete/zsh_setup 
 
 # For postgres
 # export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/13/bin/psql
-alias psql='/Applications/Postgres.app/Contents/Versions/13/bin/psql -p 54321'
+# alias psql='/Applications/Postgres.app/Contents/Versions/13/bin/psql -p 54321'
 
 # add openssl from homebrew to path
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
@@ -169,19 +169,40 @@ export PATH="/opt/homebrew/opt/llvm@12/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/me/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/me/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/me/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/me/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# __conda_setup="$('/Users/me/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/me/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/me/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/me/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
 
+
+# ===========================
+# libjpeg
+# =============================
+export PKG_CONFIG_PATH="/opt/homebrew/opt/jpeg/lib/pkgconfig"
+export LDFLAGS="-L/opt/homebrew/opt/jpeg/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/jpeg/include"
+export PATH="/opt/homebrew/opt/jpeg/bin:$PATH"
+
+
+
+# #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# export SDKMAN_DIR="$HOME/.sdkman"
+# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# ==================================
+# llvm 
+# ===================================
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 
 # pyenv
@@ -193,7 +214,15 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+############################################
+# Docker
+###########################################
+alias docker_clean_images='docker rmi $(docker images -a --filter=dangling=true -q)'
+alias docker_clean_ps='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+##################
+# To remove all of docker cache:
+#################
+# docker kill $(docker ps -q)
+# docker_clean_ps
+# docker rmi $(docker images -a -q)
