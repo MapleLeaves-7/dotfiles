@@ -186,11 +186,10 @@ export PATH="/opt/homebrew/opt/llvm@12/bin:$PATH"
 # ===========================
 # libjpeg
 # =============================
-export PKG_CONFIG_PATH="/opt/homebrew/opt/jpeg/lib/pkgconfig"
-export LDFLAGS="-L/opt/homebrew/opt/jpeg/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/jpeg/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/jpeg/lib/pkgconfig:$PKG_CONFIG_PATH"
+export LDFLAGS="-L/opt/homebrew/opt/jpeg/lib $LDFLAGS"
+export CPPFLAGS="-I/opt/homebrew/opt/jpeg/include $CPPFLAGS"
 export PATH="/opt/homebrew/opt/jpeg/bin:$PATH"
-
 
 
 # #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
@@ -200,9 +199,16 @@ export PATH="/opt/homebrew/opt/jpeg/bin:$PATH"
 # ==================================
 # llvm 
 # ===================================
+# Use :$PATH and $LDFLAGS to PRESERVE what we set above
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib $LDFLAGS"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include $CPPFLAGS"
+
+
+# ================================
+# openjdk@21
+# ===============================
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include $CPPFLAGS"
 
 
 # pyenv
@@ -226,3 +232,9 @@ alias docker_clean_ps='docker rm $(docker ps --filter=status=exited --filter=sta
 # docker kill $(docker ps -q)
 # docker_clean_ps
 # docker rmi $(docker images -a -q)
+
+###############################
+# zoxide
+################################3
+
+eval "$(zoxide init zsh)"export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
