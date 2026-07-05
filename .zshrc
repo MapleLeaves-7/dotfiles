@@ -105,7 +105,7 @@ antigen bundle Aloxaf/fzf-tab
 antigen apply
 
 # powerlevel10k
-source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # fast-syntax-highlighting
 source $(brew --prefix)/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
